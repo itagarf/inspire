@@ -1,13 +1,13 @@
-const primaryHeader = document.querySelector(".primary-header");
-const navToggle = document.querySelector(".mobile-nav-toggle");
-const primaryNav = document.querySelector(".primary-navigation");
+const header = document.querySelector(".header");
+const mobNavToggle = document.querySelector(".mobile-nav-toggle");
+const nav = document.querySelector(".navigation");
 
-navToggle.addEventListener("click", () => {
-    primaryNav.hasAttribute("data-visible") 
-        ? navToggle.setAttribute("aria-expanded", false) 
-        : navToggle.setAttribute("aria-expanded", true);
-    primaryNav.toggleAttribute("data-visible");
-    primaryHeader.toggleAttribute("data-overlay")
+mobNavToggle.addEventListener("click", () => {
+    nav.hasAttribute("data-visible") 
+        ? mobNavToggle.setAttribute("aria-expanded", false) 
+        : mobNavToggle.setAttribute("aria-expanded", true);
+    nav.toggleAttribute("data-visible");
+    header.toggleAttribute("data-overlay")
 });
 
 const slider = new A11YSlider(document.querySelector('.slider'), {
