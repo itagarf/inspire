@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="110677803877-7q6bu0bs7rb51r05g84qs3660frbt7ju.apps.googleusercontent.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>Login With Google</title>
+</head>
+<body>
+    <h2 class="alert alert-primary">Sign in with Google</h2>
+     <div class="g-signin2" data-onsuccess="onSignIn"></div> 
+    <div id="g_id_onload"
+      data-client_id="110677803877-7q6bu0bs7rb51r05g84qs3660frbt7ju.apps.googleusercontent.com"
+      data-callback="handleCredentialResponse" data-type="standard">
+    </div>
+  
+    <div class="data">
+        <p>Name</p>
+        <p id="name" class="alert alert-success"></p>
+        <p>Profile Picture</p>
+        <img id="image" class="rounded-circle" width="100" height="100">
+        <p>Email</p>
+        <p id="email"></p>
+        <p id="email_verified"></p>
+        <button class="btn btn-danger" onclick="signOut();">Sign Out</button>
+    </div>
+    <script src="../static/js/login.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="buttonDiv"></div> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>
