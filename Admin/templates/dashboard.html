@@ -1,8 +1,4 @@
-<!-- 
-    
-    This admin template was gotten from from [Github](https://github.com/themefisher/focus/ and edited to suit the project intended for. 
 
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- theme meta -->
     <meta name="theme-name" content="focus" />
-    <title>Focus Admin: Creative Admin Dashboard</title>
+    <title>Admin Dashboard</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -29,11 +25,25 @@
     <link href="../static/css/themify-icons.css" rel="stylesheet">
     <link href="../static/css/owl.theme.default.min.css" rel="stylesheet" />
     <link href="../static/css/sidebar.css" rel="stylesheet">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../static/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="../static/css/helper.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
 </head>
 
+
+
+<!--       https://postgresapp.com/#How%20to%20connect       -->
+
+
+
+
+
+<!-- 
+    
+    This admin template was gotten from from [Github](https://github.com/themefisher/focus/ and edited to suit the project intended for. 
+
+-->
 <body>
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
@@ -42,42 +52,13 @@
                 <ul>
                     <div class="logo"><a href="index.html">
 
-                    <li><a class="sidebar-sub-toggle" href="#">Edit Furniture</a></li>
-                    <li><a class="sidebar-sub-toggle" href="#">Edit Decor</a></li>
-                    <li><a class="sidebar-sub-toggle">Edit Bedding</a></li>
-                    <li><a class="sidebar-sub-toggle">Edit Bath</a></li>
-                    <li><a class="sidebar-sub-toggle">Edit Art</a></li>
-                    <li><a class="sidebar-sub-toggle">Edit About us</a></li>
+                    <li><a class="sidebar-sub-toggle" href="furniture.html">Edit Furniture</a></li>
+                    <li><a class="sidebar-sub-toggle" href="decor.html">Edit Decor</a></li>
+                    <li><a class="sidebar-sub-toggle" href="bedding.html">Edit Bedding</a></li>
+                    <li><a class="sidebar-sub-toggle" href="bath.html">Edit Bath</a></li>
+                    <li><a class="sidebar-sub-toggle" href="art.html">Edit Art</a></li>
+                    <li><a class="sidebar-sub-toggle" href="about-us.html">Edit About us</a></li>
 
-
-                    <li class="label">Features</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-layout"></i> UI Elements <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="ui-typography.html">Typography</a></li>
-                            <li><a href="ui-alerts.html">Alerts</a></li>
-
-                            <li><a href="ui-button.html">Button</a></li>
-                            <li><a href="ui-dropdown.html">Dropdown</a></li>
-                            <li><a href="table-basic.html">Basic</a></li>
-
-                            <li><a href="table-export.html">Datatable Export</a></li>
-                            <li><a href="table-row-select.html">Datatable Row Select</a></li>
-                            <li><a href="table-jsgrid.html">Editable </a></li>
-                            <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
-                            
-
-                        </ul>
-                    </li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span
-                                class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="page-login.html">Login</a></li>
-                            <li><a href="page-register.html">Register</a></li>
-                            <li><a href="page-reset-password.html">Forgot password</a></li>
-                            <li><a href="../documentation/index.html"><i class="ti-file"></i> Documentation</a></li>
-                        </ul>
-                    </li>
                     <li><a href="profile.html"><i class="ti-user"></i> Profile</a></li>
                     <li><a><i class="ti-close"></i> Logout</a></li>
                 </ul>
@@ -98,181 +79,19 @@
                         </div>
                     </div>
                     <div class="float-right">
-                        <div class="dropdown dib">
-                            <div class="header-icon" data-toggle="dropdown">
-                                <i class="ti-bell"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Recent Notifications</span>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">5 members joined today </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mariam</div>
-                                                        <div class="notification-text">likes a photo of you</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Tasnim</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="dropdown dib">
-                            <div class="header-icon" data-toggle="dropdown">
-                                <i class="ti-email"></i>
-                                <div class="drop-down dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">2 New Messages</span>
-                                        <a href="email.html">
-                                            <i class="ti-pencil-alt pull-right"></i>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/1.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="../static/imgs/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="text-center">
-                                                <a href="#" class="more-link">See All</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+
                         <div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
                                 <span class="user-avatar">John
                                     <i class="ti-angle-down f-s-10"></i>
                                 </span>
                                 <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Upgrade Now</span>
-                                        <p class="trial-day">30 Days Trail</p>
-                                    </div>
                                     <div class="dropdown-content-body">
                                         <ul>
                                             <li>
                                                 <a href="#">
                                                     <i class="ti-user"></i>
                                                     <span>Profile</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-email"></i>
-                                                    <span>Inbox</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-settings"></i>
-                                                    <span>Setting</span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-lock"></i>
-                                                    <span>Lock Screen</span>
                                                 </a>
                                             </li>
                                             <li>
@@ -318,297 +137,13 @@
                     <!-- /# column -->
                 </div>
 
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit Furniture</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                    <label>Edit Furniture </label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit Decor</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label>Edit Decor </label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit Bedding</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label>Edit Bedding</label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit Bath</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label>Edit Bath</label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit Art</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label>Edit Art </label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit About Us</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label>Edit About Us</label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
                 <!-- /# row -->
                 <section id="main-content">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="card bg-primary">
-                                        <div class="weather-widget">
-                                            <div id="weather-one" class="weather-one p-22"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="testimonial-widget-one p-17">
-                                            <div class="testimonial-widget-one owl-carousel owl-theme">
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="../static/imgs/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="../static/imgs/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="../static/imgs/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="../static/imgs/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="../static/imgs/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="testimonial-content">
-                                                        <div class="testimonial-text">
-                                                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-                                                            consectetur adipisicing elit, sed do eiusmod tempor
-                                                            incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                            minim veniam, quis
-                                                            nostrud exercitation <i class="fa fa-quote-right"></i>
-                                                        </div>
-                                                        <img class="testimonial-author-img"
-                                                            src="../static/imgs/avatar/1.jpg" alt="" />
-                                                        <div class="testimonial-author">TYRION LANNISTER</div>
-                                                        <div class="testimonial-author-position">Founder-Ceo. Dell Corp
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
                         <!-- /# column -->
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-title pr">
-                                    <h4>All Exam Result</h4>
+                                    <h4>Edit Furniture Section</h4>
 
                                 </div>
                                 <div class="card-body">
@@ -616,12 +151,11 @@
                                         <table class="table student-data-table m-t-20">
                                             <thead>
                                                 <tr>
-                                                    <th><label><input type="checkbox" value=""></label>Exam Name</th>
-                                                    <th>Subject</th>
-                                                    <th>Grade Point</th>
-                                                    <th>Percent Form</th>
-                                                    <th>Percent Upto</th>
-                                                    <th>Date</th>
+                                                    <th>Website Name</th>
+                                                    <th>Link</th>
+                                                    <th>Details</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -637,7 +171,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class Test</td>
@@ -651,7 +184,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class Test</td>
@@ -665,7 +197,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class Test</td>
@@ -679,7 +210,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class Test</td>
@@ -693,7 +223,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class Test</td>
@@ -707,7 +236,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class Test</td>
@@ -721,7 +249,6 @@
                                                     <td>
                                                         100
                                                     </td>
-                                                    <td>20/04/2017</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -747,13 +274,17 @@
 
     <!-- jquery vendor -->
     <!-- <script src="../static/js/jquery.min.js"></script> -->
-    <script src="../static/js/jquery.nanoscroller.min.js"></script>
+    <!-- <script src="../static/js/jquery.nanoscroller.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.js" integrity="sha512-jRu7VgfHgEVAPSNTNCaAgBrb5baW87LhMhspQmeXhrAekHX/TWH3eiUAnOBPaIvd1uLo7ggrFOjV1CY0qfXP9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- nano scroller -->
     <script src="../static/js/sidebar.js"></script>
     <script src="../static/js/pace.min.js"></script>
     <!-- sidebar -->
 
-    <script src="../static/js/bootstrap.min.js"></script>
+    <!-- <script src="../static/js/bootstrap.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../static/js/script.js"></script>
     <!-- scripit init-->
     <script src="../static/js/dashboard2.js"></script>

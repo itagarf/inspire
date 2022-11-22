@@ -20,7 +20,7 @@
     $("#image").attr('src', profile.picture);
     $(".data").css("display", "block");
     $(".g-signin2").css("display", "none");
-    $( ".data" ).load("dashboard.html");
+    /* $( ".data" ).load("dashboard.html"); */
  }
 
  
