@@ -1,28 +1,122 @@
+{% extends "dashboard.html" %}
 
-                <section>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                          <div class="card card-primary">
-                            <div class="card-header">
-                              <h3 class="card-title">Edit Bath</h3>
-                            </div>
-                            <form role="form" action="" method="post">
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <label>Edit Bath</label>
-                                  <input type="text" class="form-control" name="writeUp" placeholder="Enter writeup" value="mainNewswriteUp">
-                                  <input type="text" class="form-control" name="link" placeholder="Enter link" value="mainNewslink">
-                                  <input type="hidden"  name="newsId"  value="newsID">
-                                </div>  
-                              </div>
-              
-                              <div class="card-footer">
-                                <button type="submit" class="button is-primary is-fullwidth">Save</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                        </div>
-                    </div>
-                </section>
+{% block contents %}
+<div class="col-lg-8">
+  <div class="card">
+      <div class="card-title pr">
+          <h4>Edit Furniture Section</h4>
+
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <table class="table student-data-table m-t-20">
+                  <thead>
+                      <tr>
+                          <th>Website Name</th>
+                          <th>Link</th>
+                          <th>Details</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>Mathmatics</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>Mathmatics</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>English</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>Bangla</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>Mathmatics</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>English</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Class Test</td>
+                          <td>Mathmatics</td>
+                          <td>
+                              4.00
+                          </td>
+                          <td>
+                              95.00
+                          </td>
+                          <td>
+                              100
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

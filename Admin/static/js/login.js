@@ -1,6 +1,8 @@
 /* function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
   } */
+
+
   window.onload = function () {
     google.accounts.id.initialize({
       client_id: "110677803877-7q6bu0bs7rb51r05g84qs3660frbt7ju.apps.googleusercontent.com",
@@ -20,20 +22,9 @@
     $("#image").attr('src', profile.picture);
     $(".data").css("display", "block");
     $(".g-signin2").css("display", "none");
-    /* $( ".data" ).load("dashboard.html"); */
+    //* $( ".data" ).load("dashboard.html"); *//
  }
 
- 
-
-
-/* function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        alert("You have been signed out successfully");
-        $(".g-signin2").css("display", "block");
-        $(".data").css("display", "none");
-    });
-} */
 
 function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
@@ -50,3 +41,15 @@ function decodeJwtResponse(token) {
     return JSON.parse(jsonPayload);
   }
 
+
+ 
+
+
+/* function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        alert("You have been signed out successfully");
+        $(".g-signin2").css("display", "block");
+        $(".data").css("display", "none");
+    });
+} */

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,24 +10,25 @@
     <title>Admin Dashboard</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
-    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <link rel="shortcut icon" href="#"><!-- http://placehold.it/64.png/000/fff"> -->
     <!-- Retina iPad Touch Icon-->
-    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <link rel="apple-touch-icon" sizes="144x144" href="#"><!-- http://placehold.it/64.png/000/fff"> -->
     <!-- Retina iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <link rel="apple-touch-icon" sizes="114x114" href="#"><!-- http://placehold.it/64.png/000/fff"> -->
     <!-- Standard iPad Touch Icon-->
-    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <link rel="apple-touch-icon" sizes="72x72" href="#"><!-- http://placehold.it/64.png/000/fff"> -->
     <!-- Standard iPhone Touch Icon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+    <link rel="apple-touch-icon" sizes="57x57" href="#"><!-- http://placehold.it/64.png/000/fff"> -->
     <!-- Styles -->
-    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../static/css/themify-icons.css" rel="stylesheet">
-    <link href="../static/css/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="../static/css/sidebar.css" rel="stylesheet">
+    <!-- <link href="../static/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/font-awesome.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/themify-icons.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/owl.theme.default.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/sidebar.css') }}">
     <!-- <link href="../static/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="../static/css/helper.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/helper.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 </head>
 
 
@@ -50,16 +50,17 @@
         <div class="nano">
             <div class="nano-content">
                 <ul>
-                    <div class="logo"><a href="index.html">
+                    <div class="logo"><a href="{{ url_for('dashboard') }}">
 
-                    <li><a class="sidebar-sub-toggle" href="furniture.html">Edit Furniture</a></li>
-                    <li><a class="sidebar-sub-toggle" href="decor.html">Edit Decor</a></li>
-                    <li><a class="sidebar-sub-toggle" href="bedding.html">Edit Bedding</a></li>
-                    <li><a class="sidebar-sub-toggle" href="bath.html">Edit Bath</a></li>
-                    <li><a class="sidebar-sub-toggle" href="art.html">Edit Art</a></li>
-                    <li><a class="sidebar-sub-toggle" href="about-us.html">Edit About us</a></li>
+                    <li><a href="{{ url_for('addFurniture') }}">Add Furniture</a></li>
+                    <li><a href="{{ url_for('furniture') }}">Edit Furniture</a></li>
+                    <li><a href="{{ url_for('decor') }}">Edit Decor</a></li>
+                    <li><a href="{{ url_for('bedding') }}">Edit Bedding</a></li>
+                    <li><a href="{{ url_for('bath') }}">Edit Bath</a></li>
+                    <li><a href="{{ url_for('art') }}">Edit Art</a></li>
+                    <li><a href="{{ url_for('about') }}">Edit About us</a></li>
 
-                    <li><a href="profile.html"><i class="ti-user"></i> Profile</a></li>
+                    <li><a href="{{ url_for('profile') }}"><i class="ti-user"></i> Profile</a></li>
                     <li><a><i class="ti-close"></i> Logout</a></li>
                 </ul>
             </div>
@@ -138,8 +139,14 @@
                 </div>
 
                 <!-- /# row -->
+
+
                 <section id="main-content">
                         <!-- /# column -->
+                        {% block contents %}
+                        {% endblock %}
+
+                        <!-- 
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-title pr">
@@ -256,10 +263,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /# column -->
+                        <-- /# column ->
                     </div>
 
-
+ -->
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="footer">
@@ -275,20 +282,35 @@
     <!-- jquery vendor -->
     <!-- <script src="../static/js/jquery.min.js"></script> -->
     <!-- <script src="../static/js/jquery.nanoscroller.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.js" integrity="sha512-jRu7VgfHgEVAPSNTNCaAgBrb5baW87LhMhspQmeXhrAekHX/TWH3eiUAnOBPaIvd1uLo7ggrFOjV1CY0qfXP9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- nano scroller -->
-    <script src="../static/js/sidebar.js"></script>
-    <script src="../static/js/pace.min.js"></script>
-    <!-- sidebar -->
 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.js" integrity="sha512-jRu7VgfHgEVAPSNTNCaAgBrb5baW87LhMhspQmeXhrAekHX/TWH3eiUAnOBPaIvd1uLo7ggrFOjV1CY0qfXP9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- nano scroller -->
+    <script src="{{ url_for('static', filename = 'js/sidebar.js') }}"></script>
+
+
+    <!-- <script src="../static/js/pace.min.js"></script> -->
+    <!-- sidebar -->
     <!-- <script src="../static/js/bootstrap.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../static/js/script.js"></script>
+
+    <script src="{{ url_for('static', filename = 'js/script.js') }}"></script>
     <!-- scripit init-->
-    <script src="../static/js/dashboard2.js"></script>
-    <script src="../static/js/login.js"></script>
+    <!-- <script src="../static/js/dashboard2.js"></script> -->
+    <!-- <script src="../static/js/login.js"></script> -->
 </body>
 
 </html>
+
+
+<!-- script
+nanoscroller
+sidebar
+bootstrap
+jquery.min -->
