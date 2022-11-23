@@ -12,6 +12,10 @@ db=SQLAlchemy(app)
 def dashboard():
     return render_template("dashboard.html")
 
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
 @app.route("/profile")
 def profile():
     return render_template("profile.html")
@@ -70,6 +74,87 @@ class Furniture(db.Model):
         self.name = name
         self.link= link
         self.description = description
+    
+
+class Decor(db.Model):
+    __tablename__ = 'decor'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(40))
+    link = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+    def __init__(self, name, link, description):
+        self.name = name
+        self.link= link
+        self.description = description
+
+    
+class Bedroom(db.Model):
+    __tablename__ = 'bedroom'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(40))
+    link = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+    def __init__(self, name, link, description):
+        self.name = name
+        self.link= link
+        self.description = description   
+
+
+class Bath(db.Model):
+    __tablename__ = 'bath'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(40))
+    link = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+    def __init__(self, name, link, description):
+        self.name = name
+        self.link= link
+        self.description = description   
+
+
+class Art(db.Model):
+    __tablename__ = 'art'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(40))
+    link = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+    def __init__(self, name, link, description):
+        self.name = name
+        self.link= link
+        self.description = description
+
+
+class About(db.Model):
+    __tablename__ = 'about'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(40))
+    link = db.Column(db.String(255))
+    description = db.Column(db.String(255))
+
+    def __init__(self, name, link, description):
+        self.name = name
+        self.link= link
+        self.description = description
+
+
+class Profile(db.Model):
+    __tablename__ = 'profile'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(40))
+    phone = db.Column(db.String(40))
+    email = db.Column(db.String(40))
+    address = db.Column(db.String(255))
+
+    def __init__(self, name, phone, email, address):
+        self.name = name
+        self.phone= phone
+        self.email = email
+        self.address = address
+
 
 
 

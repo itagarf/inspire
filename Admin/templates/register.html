@@ -1,4 +1,4 @@
-<!-- 
+{<!-- 
     
     This admin template was gotten from from [Github](https://github.com/themefisher/focus/ and edited to suit the project intended for. 
 
@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Focus Admin: Widget</title>
+    <title>Register</title>
 
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
@@ -27,14 +27,14 @@
     <link rel="apple-touch-icon" sizes="57x57" href="#"><!-- http://placehold.it/64.png/000/fff"> -->
 
     <!-- Styles -->
-    <link href="css/lib/font-awesome.min.css" rel="stylesheet">
-    <link href="css/lib/themify-icons.css" rel="stylesheet">
-    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="css/lib/helper.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/font-awesome.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/themify-icons.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/helper.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 </head>
 
-<body class="bg-primary">
+<body class="bg-primary">}
 
     <div class="unix-login">
         <div class="container-fluid">
@@ -42,7 +42,7 @@
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="index.html"><span>Focus</span></a>
+                            <a href="{{ url_for('dashboard') }}"><span>Focus</span></a>
                         </div>
                         <div class="login-form">
                             <h4>Register to Administration</h4>
