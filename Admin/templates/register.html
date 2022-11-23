@@ -1,4 +1,4 @@
-{<!-- 
+<!-- 
     
     This admin template was gotten from from [Github](https://github.com/themefisher/focus/ and edited to suit the project intended for. 
 
@@ -34,7 +34,7 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
 </head>
 
-<body class="bg-primary">}
+<body class="bg-primary">
 
     <div class="unix-login">
         <div class="container-fluid">
@@ -42,37 +42,34 @@
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="{{ url_for('dashboard') }}"><span>Focus</span></a>
+                            <a href="{{ url_for('dashboard') }}"><span>Register</span></a>
                         </div>
                         <div class="login-form">
                             <h4>Register to Administration</h4>
-                            <form>
+                            <form method="POST" action="/register">
                                 <div class="form-group">
                                     <label>User Name</label>
-                                    <input type="email" class="form-control" placeholder="User Name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="User Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
                                 </div>
                                 <div class="form-group">
                                     <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-										<input type="checkbox"> Agree the terms and policy 
-									</label>
+                                <div class="form-group">
+                                    <label>Re-enter Password</label>
+                                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Re-enter Password">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Register with facebook</button>
-                                        <button type="button" class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10"><i class="ti-twitter"></i>Register with twitter</button>
-                                    </div>
-                                </div>
                                 <div class="register-link m-t-15 text-center">
-                                    <p>Already have account ? <a href="#"> Sign in</a></p>
+                                    <p>Already have account ? <a href="{{ url_for('dashboard') }}"> Sign in</a></p>
                                 </div>
                             </form>
                         </div>
