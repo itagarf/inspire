@@ -15,7 +15,8 @@
                         </div>
                       </div> -->
                       <div class="col-lg-8">
-                        <div class="user-profile-name">john doe</div>
+                        {% for profile in profiles %}
+                        <div class="user-profile-name">{{ profile.name }}</div>
                         <div class="custom-tab user-profile-tab">
                           <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
@@ -28,20 +29,17 @@
                                 <h4>Contact information</h4>
                                 <div class="phone-content">
                                   <span class="contact-title">Phone:</span>
-                                  <span class="phone-number">+8801629599859</span>
+                                  <span class="phone-number">{{ profile.phone }}</span>
                                 </div>
                                 <div class="email-content">
                                   <span class="contact-title">Email:</span>
-                                  <span class="contact-email">hello@Admin Board.com</span>
-                                </div>
-                                <div class="address-content">
-                                  <span class="contact-title">Address:</span>
-                                  <span class="mail-address">123, Rajar Goli, South Mugda</span>
+                                  <span class="contact-email">{{ profile.email }}</span>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        {% endfor %}
                       </div>
                     </div>
                   </div>
