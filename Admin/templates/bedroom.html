@@ -4,7 +4,7 @@
 <div class="col-lg-12">
   <div class="card">
       <div class="card-title pr">
-          <h4>Edit Bath Section</h4>
+          <h4>Edit Bedroom Section</h4>
 
       </div>
       <div class="card-body">
@@ -26,15 +26,15 @@
                       </tr>
                   </thead>
                   <tbody>
-                    {% for bath in baths %}
+                    {% for bedroom in bedrooms %}
                       <tr>
-                          <td>{{ bath.name }}</td>
-                          <td>{{ bath.link }}</td>
+                          <td>{{ bedroom.name }}</td>
+                          <td>{{ bedroom.link }}</td>
                           <td>
-                            {{ bath.description }}
+                            {{ bedroom.description }}
                           </td>
                           <td>
-                            <a href="{{ url_for('deleteBath', id=bath.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="{{ url_for('deleteBedroom', id=bedroom.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
                     {% endfor %}

@@ -1,122 +1,48 @@
 {% extends "dashboard.html" %}
 
 {% block contents %}
-<div class="col-lg-8">
+<div class="col-lg-12">
   <div class="card">
       <div class="card-title pr">
-          <h4>Edit Furniture Section</h4>
+          <h4>Edit Decor Section</h4>
 
       </div>
       <div class="card-body">
           <div class="table-responsive">
               <table class="table student-data-table m-t-20">
+                {% for message in get_flashed_messages() %}
+                    {% if messages %}
+                            <div class="notification is-danger">
+                                {{ messages[0] }}
+                            </div>
+                    {% endif %}
+                {% endfor %}
                   <thead>
                       <tr>
                           <th>Website Name</th>
                           <th>Link</th>
                           <th>Details</th>
-                          <th>Edit</th>
                           <th>Delete</th>
                       </tr>
                   </thead>
                   <tbody>
+                    {% for decor in decors %}
                       <tr>
-                          <td>Class Test</td>
-                          <td>Mathmatics</td>
+                          <td>{{ decor.name }}</td>
+                          <td>{{ decor.link }}</td>
                           <td>
-                              4.00
+                            {{ decor.description }}
                           </td>
                           <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
+                            <a href="{{ url_for('deleteDecor', id=decor.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
-                      <tr>
-                          <td>Class Test</td>
-                          <td>Mathmatics</td>
-                          <td>
-                              4.00
-                          </td>
-                          <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Class Test</td>
-                          <td>English</td>
-                          <td>
-                              4.00
-                          </td>
-                          <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Class Test</td>
-                          <td>Bangla</td>
-                          <td>
-                              4.00
-                          </td>
-                          <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Class Test</td>
-                          <td>Mathmatics</td>
-                          <td>
-                              4.00
-                          </td>
-                          <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Class Test</td>
-                          <td>English</td>
-                          <td>
-                              4.00
-                          </td>
-                          <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Class Test</td>
-                          <td>Mathmatics</td>
-                          <td>
-                              4.00
-                          </td>
-                          <td>
-                              95.00
-                          </td>
-                          <td>
-                              100
-                          </td>
-                      </tr>
+                    {% endfor %}
                   </tbody>
-              </table>
-          </div>
-      </div>
+                </table>
+            </div>
+        </div>
   </div>
-</div>
 </div>
 
 {% endblock %}

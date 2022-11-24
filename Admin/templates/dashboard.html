@@ -54,11 +54,15 @@
 
                     <li><a href="{{ url_for('addFurniture') }}">Add Furniture</a></li>
                     <li><a href="{{ url_for('furniture') }}">Edit Furniture</a></li>
+                    <li><a href="{{ url_for('addDecor') }}">Add Decor</a></li>
                     <li><a href="{{ url_for('decor') }}">Edit Decor</a></li>
-                    <li><a href="{{ url_for('bedding') }}">Edit Bedding</a></li>
+                    <li><a href="{{ url_for('addBedroom') }}">Add Bedroom</a></li>
+                    <li><a href="{{ url_for('bedroom') }}">Edit Bedroom</a></li>
+                    <li><a href="{{ url_for('addBath') }}">Add Bath</a></li>
                     <li><a href="{{ url_for('bath') }}">Edit Bath</a></li>
+                    <li><a href="{{ url_for('addArt') }}">Add Art</a></li>
                     <li><a href="{{ url_for('art') }}">Edit Art</a></li>
-                    <li><a href="{{ url_for('about') }}">Edit About us</a></li>
+                    <li><a href="{{ url_for('register') }}">Add new user</a></li>
 
                     <li><a href="{{ url_for('profile') }}"><i class="ti-user"></i> Profile</a></li>
                     <li><a><i class="ti-close"></i> Logout</a></li>
@@ -129,8 +133,7 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Home</li>
+                                    <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                                 </ol>
                             </div>
                         </div>

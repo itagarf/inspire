@@ -1,12 +1,52 @@
 {% extends "dashboard.html" %}
 
 {% block contents %}
-<div class="col-lg-8">
+<div class="col-lg-12">
   <div class="card">
       <div class="card-title pr">
           <h4>Edit Furniture Section</h4>
 
       </div>
+      <div class="card-body">
+          <div class="table-responsive">
+              <table class="table student-data-table m-t-20">
+                {% for message in get_flashed_messages() %}
+                    {% if messages %}
+                            <div class="notification is-danger">
+                                {{ messages[0] }}
+                            </div>
+                    {% endif %}
+                {% endfor %}
+                  <thead>
+                      <tr>
+                          <th>Website Name</th>
+                          <th>Link</th>
+                          <th>Details</th>
+                          <!-- <th>Edit</th> -->
+                          <th>Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {% for furniture in furnitures %}
+                      <tr>
+                          <td>{{ furniture.name }}</td>
+                          <td>{{ furniture.link }}</td>
+                          <td>
+                            {{ furniture.description }}
+                          </td>
+                          <!-- <td>
+                              <a href=" url_for('editFurniture', id=furniture.id) ">Edit</a>
+                          </td> -->
+                          <td>
+                            <a href="{{ url_for('deleteFurniture', id=furniture.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+<!-- 
       <div class="card-body">
           <div class="table-responsive">
               <table class="table student-data-table m-t-20">
@@ -114,9 +154,8 @@
                   </tbody>
               </table>
           </div>
-      </div>
+      </div> -->
   </div>
-</div>
 </div>
 
 {% endblock %}
