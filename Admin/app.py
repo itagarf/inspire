@@ -28,6 +28,7 @@ def dashboard():
 
 
 
+
 @app.route("/register")
 def register():
     return render_template("register.html")
@@ -61,8 +62,7 @@ def registered():
 @app.route("/profile")
 @login_required
 def profile():
-    profiles = Profile.query.all()
-    return render_template("profile.html", profiles=profiles)
+    return render_template("profile.html")
 
 
 @app.route("/login")
@@ -91,6 +91,10 @@ def loggedIn():
 def logout():
     logout_user()
     return redirect(url_for("login"))
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return "Unauthorized", 401
 
 
 """ @app.route("/edit-furniture/<int:id>", methods=["GET", "POST"])
@@ -173,7 +177,7 @@ def submitDecor():
     db.session.commit()
     flash("Decor detail added successfully!", category="success")
 
-    return render_template("decor.html")
+    return redirect(url_for("decor"))
 
 @app.route("/decor")
 @login_required
@@ -213,7 +217,7 @@ def submitBedroom():
     db.session.commit()
     flash("Bedroom detail added successfully!", category="success")
 
-    return render_template("bedroom.html")
+    return redirect(url_for("bedroom"))
 
 @app.route("/bedroom")
 @login_required
@@ -253,7 +257,7 @@ def submitBath():
     db.session.commit()
     flash("Bath detail added successfully!", category="success")
 
-    return render_template("bath.html")
+    return redirect(url_for("bath"))
 
 @app.route("/bath")
 @login_required
@@ -295,7 +299,7 @@ def submitArt():
     db.session.commit()
     flash("Art detail added successfully!", category="success")
 
-    return render_template("art.html")
+    return redirect(url_for("art"))
 
 @app.route("/art")
 @login_required

@@ -15,8 +15,7 @@
                         </div>
                       </div> -->
                       <div class="col-lg-8">
-                        {% for profile in profiles %}
-                        <div class="user-profile-name">{{ profile.name }}</div>
+                        <div class="user-profile-name">{{ current_user.name }}</div>
                         <div class="custom-tab user-profile-tab">
                           <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
@@ -29,17 +28,16 @@
                                 <h4>Contact information</h4>
                                 <div class="phone-content">
                                   <span class="contact-title">Phone:</span>
-                                  <span class="phone-number">{{ profile.phone }}</span>
+                                  <span class="phone-number">{{ current_user.phone }}</span>
                                 </div>
                                 <div class="email-content">
                                   <span class="contact-title">Email:</span>
-                                  <span class="contact-email">{{ profile.email }}</span>
+                                  <span class="contact-email">{{ current_user.email }}</span>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        {% endfor %}
                       </div>
                     </div>
                   </div>
