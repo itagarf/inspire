@@ -41,19 +41,19 @@
         <div class="nano">
             <div class="nano-content">
                 <ul>
-                    <div class="logo"><a href="{{ url_for('dashboard') }}">
+                    <div class="logo"><a href="{{ url_for('dashboard') }}"></a></div>
 
-                    <li><a href="{{ url_for('addFurniture') }}">Add Furniture</a></li>
-                    <li><a href="{{ url_for('furniture') }}">Edit Furniture</a></li>
-                    <li><a href="{{ url_for('addDecor') }}">Add Decor</a></li>
-                    <li><a href="{{ url_for('decor') }}">Edit Decor</a></li>
-                    <li><a href="{{ url_for('addBedroom') }}">Add Bedroom</a></li>
-                    <li><a href="{{ url_for('bedroom') }}">Edit Bedroom</a></li>
-                    <li><a href="{{ url_for('addBath') }}">Add Bath</a></li>
-                    <li><a href="{{ url_for('bath') }}">Edit Bath</a></li>
-                    <li><a href="{{ url_for('addArt') }}">Add Art</a></li>
-                    <li><a href="{{ url_for('art') }}">Edit Art</a></li>
-                    <li><a href="{{ url_for('register') }}">Add new user</a></li>
+                    <li><a href="{{ url_for('addFurniture') }}"><i class="ti-plus"></i>Add Furniture</a></li>
+                    <li><a href="{{ url_for('furniture') }}"><i class="ti-pencil-alt"></i>Edit Furniture</a></li>
+                    <li><a href="{{ url_for('addDecor') }}"><i class="ti-plus"></i>Add Decor</a></li>
+                    <li><a href="{{ url_for('decor') }}"><i class="ti-pencil-alt"></i>Edit Decor</a></li>
+                    <li><a href="{{ url_for('addBedroom') }}"><i class="ti-plus"></i>Add Bedroom</a></li>
+                    <li><a href="{{ url_for('bedroom') }}"><i class="ti-pencil-alt"></i>Edit Bedroom</a></li>
+                    <li><a href="{{ url_for('addBath') }}"><i class="ti-plus"></i>Add Bath</a></li>
+                    <li><a href="{{ url_for('bath') }}"><i class="ti-pencil-alt"></i>Edit Bath</a></li>
+                    <li><a href="{{ url_for('addArt') }}"><i class="ti-plus"></i>Add Art</a></li>
+                    <li><a href="{{ url_for('art') }}"><i class="ti-pencil-alt"></i>Edit Art</a></li>
+                    <li><a href="{{ url_for('register') }}"><i class="ti-plus"></i>Add new user</a></li>
 
                     <li><a href="{{ url_for('profile') }}"><i class="ti-user"></i> Profile</a></li>
                     <li><a href="{{ url_for('logout') }}"><i class="ti-close"></i> Logout</a></li>
@@ -78,9 +78,7 @@
 
                         <div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">{{ current_user.name }}
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
+                                <span class="user-avatar">{{ current_user.name }}</span>
                                 <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-content-body">
                                         <ul>
