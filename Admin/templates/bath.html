@@ -28,13 +28,13 @@
                   <tbody>
                     {% for bath in baths %}
                       <tr>
-                          <td>{{ bath.name }}</td>
+                          <td style="white-space: nowrap;">{{ bath.name }}</td>
                           <td>{{ bath.link }}</td>
                           <td>
                             {{ bath.description }}
                           </td>
-                          <td>
-                            <a href="{{ url_for('deleteBath', id=bath.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <td style="white-space: nowrap;">
+                            <a href="{{ url_for('editBath', id=bath.id) }}"><button type="button" class="btn btn-danger">Edit</button></a>&nbsp;<a href="{{ url_for('deleteBath', id=bath.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
                     {% endfor %}
@@ -43,6 +43,7 @@
             </div>
         </div>
   </div>
+  <a href="{{ url_for('addBath') }}"><button type="button" class="btn btn-danger">Add new details</button></a>
 </div>
 
 {% endblock %}

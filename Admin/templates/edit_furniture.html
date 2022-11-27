@@ -1,0 +1,27 @@
+{% extends "dashboard.html" %}
+
+{% block contents %}
+
+<div class="column is-4 is-offset-4">
+    <h3 class="text-center">Edit {{ furniture.name }} Details</h3>
+    <div class="box">
+
+        <form method="POST">
+            <div class="form-group">
+                Website Name
+                <input type="text" class="form-control" id="name" name="name" value="{{ furniture.name }}" placeholder="Enter name of website" autofocus=""/>
+            </div>
+            <div class="form-group">
+                Link
+                <input type="text" class="form-control" id="link" name="link" value="{{ furniture.link }}" placeholder="Enter website link"/>
+            </div>
+            <div class="form-group">
+                Description
+                <input type="text" class="form-control" id="description" name="description" value="{{ furniture.description}}" placeholder="Enter description"/>
+            </div>
+            <button type="submit" class="button is-block is-primary is-fullwidth">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

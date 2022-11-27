@@ -28,13 +28,13 @@
                   <tbody>
                     {% for art in arts %}
                       <tr>
-                          <td>{{ art.name }}</td>
+                          <td style="white-space: nowrap;">{{ art.name }}</td>
                           <td>{{ art.link }}</td>
                           <td>
                             {{ art.description }}
                           </td>
-                          <td>
-                            <a href="{{ url_for('deleteArt', id=art.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <td style="white-space: nowrap;">
+                            <a href="{{ url_for('editArt', id=art.id) }}"><button type="button" class="btn btn-danger">Edit</button></a>&nbsp;<a href="{{ url_for('deleteArt', id=art.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
                     {% endfor %}
@@ -43,6 +43,7 @@
             </div>
         </div>
   </div>
+  <a href="{{ url_for('addArt') }}"><button type="button" class="btn btn-danger">Add new details</button></a>
 </div>
 
 {% endblock %}

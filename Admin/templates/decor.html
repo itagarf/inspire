@@ -28,13 +28,13 @@
                   <tbody>
                     {% for decor in decors %}
                       <tr>
-                          <td>{{ decor.name }}</td>
+                          <td style="white-space: nowrap;">{{ decor.name }}</td>
                           <td>{{ decor.link }}</td>
                           <td>
                             {{ decor.description }}
                           </td>
-                          <td>
-                            <a href="{{ url_for('deleteDecor', id=decor.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <td style="white-space: nowrap;">
+                            <a href="{{ url_for('editDecor', id=decor.id) }}"><button type="button" class="btn btn-danger">Edit</button></a>&nbsp;<a href="{{ url_for('deleteDecor', id=decor.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
                     {% endfor %}
@@ -43,6 +43,7 @@
             </div>
         </div>
   </div>
+  <a href="{{ url_for('addDecor') }}"><button type="button" class="btn btn-danger">Add new details</button></a>
 </div>
 
 {% endblock %}

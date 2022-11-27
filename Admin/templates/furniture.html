@@ -22,31 +22,28 @@
                           <th>Website Name</th>
                           <th>Link</th>
                           <th>Details</th>
-                          <!-- <th>Edit</th> -->
-                          <th>Delete</th>
+                          <th>Actions</th>
                       </tr>
                   </thead>
                   <tbody>
                     {% for furniture in furnitures %}
                       <tr>
-                          <td>{{ furniture.name }}</td>
+                          <td style="white-space: nowrap;">{{ furniture.name }}</td>
                           <td>{{ furniture.link }}</td>
                           <td>
                             {{ furniture.description }}
                           </td>
-                          <!-- <td>
-                              <a href=" url_for('editFurniture', id=furniture.id) ">Edit</a>
-                          </td> -->
-                          <td>
-                            <a href="{{ url_for('deleteFurniture', id=furniture.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <td style="white-space: nowrap;">
+                            <a href="{{ url_for('editFurniture', id=furniture.id) }}"><button type="button" class="btn btn-danger">Edit</button></a>&nbsp;<a href="{{ url_for('deleteFurniture', id=furniture.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
                     {% endfor %}
                   </tbody>
                 </table>
-            </div>
-        </div>
+          </div>
+      </div>
   </div>
+  <a href="{{ url_for('addFurniture') }}"><button type="button" class="btn btn-danger">Add new details</button></a>
 </div>
 
 {% endblock %}

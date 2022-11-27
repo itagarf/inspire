@@ -28,13 +28,13 @@
                   <tbody>
                     {% for bedroom in bedrooms %}
                       <tr>
-                          <td>{{ bedroom.name }}</td>
+                          <td style="white-space: nowrap;">{{ bedroom.name }}</td>
                           <td>{{ bedroom.link }}</td>
                           <td>
                             {{ bedroom.description }}
                           </td>
-                          <td>
-                            <a href="{{ url_for('deleteBedroom', id=bedroom.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                          <td style="white-space: nowrap;">
+                            <a href="{{ url_for('editBedroom', id=bedroom.id) }}"><button type="button" class="btn btn-danger">Edit</button></a>&nbsp;<a href="{{ url_for('deleteBedroom', id=bedroom.id) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                           </td>
                       </tr>
                     {% endfor %}
@@ -43,6 +43,7 @@
             </div>
         </div>
   </div>
+  <a href="{{ url_for('addBedroom') }}"><button type="button" class="btn btn-danger">Add new details</button></a>
 </div>
 
 {% endblock %}
