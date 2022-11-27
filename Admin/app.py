@@ -10,10 +10,10 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 #app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost/inspire"
-#app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
 
 
 db=SQLAlchemy(app)
@@ -405,6 +405,17 @@ def deleteArt(id):
         return render_template("art.html", arts=arts)
     except:
         return redirect(url_for("art"))
+
+
+
+@app.route("/home")
+def home():
+    furnitures = Furniture.query.all()
+    decors = Decor.query.all()
+    bedrooms = Bedroom.query.all()
+    baths = Bath.query.all()
+    arts = Art.query.all()
+    return render_template("home.html", furnitures=furnitures, decors=decors, bedrooms=bedrooms, baths=baths, arts=arts)
 
 
 
