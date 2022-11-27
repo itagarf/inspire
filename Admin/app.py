@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, session, redirect, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -5,11 +6,14 @@ from flask_login import UserMixin, LoginManager, login_user, login_required, log
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = "!£$%^&*()LKJHGFDSrtyA}:@<>?"
+#app.config["SECRET_KEY"] = "%^&*()LKJHGFDSrtyA}:@<>?"
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost/inspire"
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost/inspire"
+#app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 
-#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
+
+app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
 
 
 db=SQLAlchemy(app)
@@ -23,8 +27,12 @@ def load_user(id):
     return Profile.query.get(int(id))
 
 
+
+
+
+
 @app.route("/dashboard")
-@login_required
+#@login_required
 def dashboard():
     return render_template("dashboard.html")
 
@@ -36,9 +44,10 @@ def register():
     return render_template("register.html")
 
 @app.route("/register", methods=["POST"])
-@login_required
+#@login_required
 def registered():
-    session["secret"]="sec"
+    #session["secret"]="sec"
+    session["secret"]= os.getenv("SECRET")
     name = request.form.get("name")
     phone = request.form.get("phone")
     email = request.form.get("email")
@@ -98,7 +107,7 @@ def logout():
 def unauthorized():
     return "Unauthorized", 401
         
-""" 
+
 
 @app.route("/add-furniture")
 @login_required
@@ -157,66 +166,6 @@ def deleteFurniture(id):
     except:
         #flash("Error delete furniture detail!", category="error")
         #return render_template("furniture.html", item=item)
-        return redirect(url_for("furniture"))
- """
-
-
-
-@app.route("/add-furniture")
-@login_required
-def addFurniture():
-    return render_template("add_furniture.html")
-
-@app.route("/add-furniture", methods=["POST"])
-@login_required
-def submitFurniture():
-    name = request.form["name"]
-    link = request.form["link"]
-    description = request.form["description"]
-
-    furniture = Furniture(name=name, link=link, description=description)
-    db.session.add(furniture)
-    db.session.commit()
-    flash("Furniture detail added successfully!", category="success")
-
-    return redirect(url_for("furniture"))
-
-@app.route("/furniture")
-@login_required
-def furniture():
-    furnitures = Furniture.query.all()
-    return render_template("furniture.html", furnitures=furnitures)
-
-@app.route("/edit-furniture/<int:id>", methods=["GET", "POST"])
-def editFurniture(id):
-    furniture = Furniture.query.get_or_404(id)
-    if request.method == "POST":
-        name = request.form["name"]
-        link = request.form["link"]
-        description = request.form["description"]
-
-        furniture.name = name
-        furniture.link = link
-        furniture.description = description
-
-        db.session.add(furniture)
-        db.session.commit()
-        flash("Furniture detail updated successfully!")
-            
-        return redirect(url_for("furniture"))
-    return render_template("edit_furniture.html", furniture=furniture)
-
-@app.route("/delete-furniture/<int:id>")
-@login_required
-def deleteFurniture(id):
-    item = Furniture.query.get_or_404(id)
-    try:
-        db.session.delete(item)
-        db.session.commit()
-        flash("Furniture detail deleted successfully!", category="success")
-        furnitures = Furniture.query()
-        return render_template("furniture.html", furnitures=furnitures)
-    except:
         return redirect(url_for("furniture"))
 
 
@@ -544,4 +493,4 @@ class Profile(UserMixin, db.Model):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80, debug="TRUE")
+    app.run(host="0.0.0.0", port=5000, debug="TRUE")
