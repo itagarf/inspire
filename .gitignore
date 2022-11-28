@@ -6,4 +6,4 @@
 **terraform.tfstate
 **terraform.tfstate.backup
 **Host/
-**kube_service
+**web/
