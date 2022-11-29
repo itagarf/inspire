@@ -6,17 +6,22 @@ from flask_login import UserMixin, LoginManager, login_user, login_required, log
 
 app = Flask(__name__)
 
-#app.config["SECRET_KEY"] = "%^&*()LKJHGFDSrtyA}:@<>?"
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SECRET_KEY"] = "%^&*()LKJHGFDSrtyA}:@<>?"
+#app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 #app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost/inspire"
 #app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgres://postgres:mysecretpassword@postgres:5432/postgres"
+
+app.config.from_pyfile("config.cfg")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
 db=SQLAlchemy(app)
+db.init_app(app)
 
 login_manager = LoginManager()
 login_manager.login_view = "login"
@@ -46,8 +51,9 @@ def register():
 @app.route("/register", methods=["POST"])
 #@login_required
 def registered():
-    #session["secret"]="sec"
-    session["secret"]= os.getenv("SECRET")
+    db.create_all()
+    session["secret"]="sec"
+    #session["secret"]= os.getenv("SECRET")
     name = request.form.get("name")
     phone = request.form.get("phone")
     email = request.form.get("email")
@@ -408,7 +414,7 @@ def deleteArt(id):
 
 
 
-""" @app.route("/home")
+@app.route("/home")
 def home():
     furnitures = Furniture.query.all()
     decors = Decor.query.all()
@@ -416,7 +422,7 @@ def home():
     baths = Bath.query.all()
     arts = Art.query.all()
     return render_template("home.html", furnitures=furnitures, decors=decors, bedrooms=bedrooms, baths=baths, arts=arts)
- """
+
 
 
 

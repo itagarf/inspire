@@ -2,7 +2,8 @@ import os
 import sys
 sys.path.insert(0,"..")
 from flask import Flask, render_template
-from Admin.app import db, Furniture, Decor, Bedroom, Bath, Art
+#from Admin.app import db, Furniture, Decor, Bedroom, Bath, Art
+from db import db, Furniture, Decor, Bedroom, Bath, Art
 
 
 app = Flask(__name__)
@@ -29,6 +30,6 @@ def home():
 
 
 
-#if __name__ == "__main__":
-#    app.run(host="0.0.0.0", port=80, debug="TRUE")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80, debug="TRUE")
 #    #app.run(host="0.0.0.0", port=80)

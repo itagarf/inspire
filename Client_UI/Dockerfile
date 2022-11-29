@@ -13,5 +13,7 @@ COPY . .
 EXPOSE 5001
 
 ENTRYPOINT [ "python3", "client.py" ]
+#ENV FLASK_APP=client.py
+#ENTRYPOINT [ "flask", "run", "--host=0.0.0.0"]
 
 
