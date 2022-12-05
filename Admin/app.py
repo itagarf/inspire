@@ -9,14 +9,21 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "%^&*()LKJHGFDSrtyA}:@<>?"
 #app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
+#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///inspire.inspire"
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost:5432/inspire"
 #app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost/inspire"
 #app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 
+POSTGRES_HOST = os.environ['POSTGRES_HOST']
+POSTGRES_USER = os.environ['POSTGRES_USER']
+POSTGRES_PORT = os.environ['POSTGRES_PORT']
+POSTGRES_DB = os.environ['POSTGRES_DB']
+POSTGRES_PASSWORD = os.environ['PGPASSWORD']
 
-#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@localhost/postgres"
-#app.config["SQLALCHEMY_DATABASE_URI"] ="postgres://postgres:mysecretpassword@postgres:5432/postgres"
+#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@db:5432/postgres"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
-app.config.from_pyfile("config.cfg")
+#app.config.from_pyfile("config.cfg")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
@@ -51,7 +58,7 @@ def register():
 @app.route("/register", methods=["POST"])
 #@login_required
 def registered():
-    db.create_all()
+    #db.create_all()
     session["secret"]="sec"
     #session["secret"]= os.getenv("SECRET")
     name = request.form.get("name")
@@ -510,4 +517,5 @@ class Profile(UserMixin, db.Model):
 
 
 #if __name__ == "__main__":
-#    app.run(host="0.0.0.0", port=5000, debug="TRUE")
+#    #app.run(port=80)
+#    app.run(host="0.0.0.0", port=80, debug="TRUE")

@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: inspire
-  namespace: default
   labels:
     app: inspire
 spec:
@@ -17,7 +16,20 @@ spec:
     spec:
       containers:
       - name: inspire
-        image: 428253719401.dkr.ecr.eu-west-1.amazonaws.com/inspire:latest
+        image: itagar/inspire:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: POSTGRES_HOST
+          value: "postgres"
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PORT
+          value: "5432"
+        - name: POSTGRES_DB
+          value: "postgres"
+        - name: PGPASSWORD
+          value: "mysecretpassword"
 
 
 ---
@@ -25,32 +37,28 @@ apiVersion: v1
 kind: Service
 metadata:
   name: inspire-service
-  namespace: default
   labels:
     app: inspire
 spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 5000
-    nodePort: 30005
+    targetPort: 80
   selector:
     app: inspire
-  type: LoadBalancer
-  loadBalancerIP: ""
+  type: ClusterIP
 
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-config
-  namespace: default
   labels:
     app: postgres
 data:
-  POSTGRES_DB: postgres
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: mysecretpassword
+  POSTGRES_DB: "postgres"
+  POSTGRES_USER: "postgres"
+  POSTGRES_PASSWORD: "mysecretpassword"
 
 
 ---
@@ -58,11 +66,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: default
   labels:
     app: postgres
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: postgres
@@ -72,54 +79,88 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres
-        env:
-          - name: POSTGRES_DB
-            valueFrom:
-              configMapKeyRef:
-                key: POSTGRES_DB
-                name: postgres-config
-          - name: POSTGRES_USER
-            valueFrom:
-              configMapKeyRef:
-                key: POSTGRES_USER
-                name: postgres-config
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                key: POSTGRES_PASSWORD
-                name: postgres-config
+      - name: some-postgres
+        image: postgres:15
         ports:
-          - containerPort: 5432
-            name: postgres
+        - containerPort: 5432
+          name: postgres
+        env:
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_DB
+              name: postgres-config
+        - name: POSTGRES_USER
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_USER
+              name: postgres-config
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              key: POSTGRES_PASSWORD
+              name: postgres-config
         volumeMounts:
-          - name: postgres-storage
-            mountPath: /var/lib/postgresql/db-data
-      volumes:
         - name: postgres-storage
-          persistentVolumeClaim:
-            claimName: postgres-pv-claim
+          mountPath: /var/lib/postgresql/db-data
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim
+
+
+
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pv-claim
+  labels:
+    app: postgres
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
+
+
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgresql
+  name: postgres
+  labels:
+    app: postgres
 spec:
+  #type: NodePort
+  type: ClusterIP
   ports:
-    - port: 5432
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
   selector:
     app: postgres
+  #clusterIP: none
+
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: inspire-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: inspire-service
+              port:
+                number: 80

@@ -5,6 +5,7 @@
 **.terraform/
 **terraform.tfstate
 **terraform.tfstate.backup
-**Host/
-**web/
+Host/
+web/
 **.data/
+trial/
