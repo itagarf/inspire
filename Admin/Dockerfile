@@ -11,13 +11,13 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-#EXPOSE 80
+EXPOSE 80
 
-#CMD python app.py
+CMD python app.py
 
 #CMD [ "/bin/bash", "entrypoint.sh" ]
 
-#ENTRYPOINT [ "python3", "app.py" ]
+#ENTRYPOINT [ "python", "app.py" ]
 #ENV FLASK_APP=app.py
 #ENTRYPOINT [ "flask", "run", "--host=0.0.0.0"]
 

@@ -17,19 +17,21 @@ spec:
       containers:
       - name: inspire
         image: itagar/inspire:latest
+        #imagePullPolicy: Never
         ports:
         - containerPort: 80
         env:
         - name: POSTGRES_HOST
-          value: "postgres"
+          value: postgres
         - name: POSTGRES_USER
-          value: "postgres"
+          value: postgres
         - name: POSTGRES_PORT
           value: "5432"
         - name: POSTGRES_DB
-          value: "postgres"
+          value: postgres
         - name: PGPASSWORD
-          value: "mysecretpassword"
+          value: mysecretpassword
+        
 
 
 ---
@@ -151,16 +153,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: inspire-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  #annotations:
+  #  nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - http:
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: inspire-service
-              port:
-                number: 80
+        paths:
+          - path: /dashboard
+            pathType: Prefix
+            backend:
+              service:
+                name: inspire-service
+                port:
+                  number: 80
