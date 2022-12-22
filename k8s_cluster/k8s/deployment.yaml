@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: home
+  name: inspire
   labels:
-    name: home
+    name: inspire
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: home
+      app: inspire
   template:
     metadata:
       labels:
-        app: home
+        app: inspire
     spec:
       containers:
-      - name: home
-        image: itagar/inspire:latest
+      - name: inspire
+        image: itagar/inspr:latest
         #imagePullPolicy: Never
         ports:
         - containerPort: 80
@@ -39,16 +39,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: home-service
+  name: inspire-service
   labels:
-    app: home
+    app: inspire
 spec:
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
   selector:
-    app: home
+    app: inspire
   type: NodePort
 
 

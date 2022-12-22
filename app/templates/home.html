@@ -33,6 +33,9 @@
                         <li><a href="#Bath">Bath</a></li>
                         <li><a href="#Art">Art</a></li>
                         <li><a href="#about-us">About Us</a></li>
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{url_for('login')}}">Admin</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
                 <a href="#newsletter">

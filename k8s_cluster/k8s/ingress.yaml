@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: home-ingress
+  name: inspire-ingress
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -16,7 +16,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: home-service
+            name: inspire-service
             port:
               number: 80
   - host: admin.homeinspr.com
@@ -26,7 +26,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: home-service
+            name: inspire-service
             port:
               number: 80
 

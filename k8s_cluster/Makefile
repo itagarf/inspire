@@ -44,13 +44,16 @@ deploy_cert_manager:
 		--validate=false \
 		-f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
 
-apply_manifest:
+apply_cert_manager_manifest:
 	kubectl apply \
 		--validate=false \
 		-f ./cert-manager.yaml
 
 deploy_ingress_controller:
 	kubectl apply -f v2_4_4_full.yaml
+
+apply_ingress_class:
+	kubectl apply -f v2_4_4_ingclass.yaml
 
 deploy_application:
 	kustomize build ./k8s | kubectl apply -f -
