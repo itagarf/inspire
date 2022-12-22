@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "mySECRETkey.(;)"
 #app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
+#confirgure the database connection
 
 """ POSTGRES_HOST = os.environ['POSTGRES_HOST']
 POSTGRES_USER = os.environ['POSTGRES_USER']
@@ -29,6 +30,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{POSTGRES_USER}:{POSTGRES
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
+#initialize the database
 db=SQLAlchemy(app)
 db.init_app(app)
 
@@ -41,7 +43,7 @@ def load_user(id):
     return Profile.query.get(int(id))
 
 
-
+#Perform health check
 @app.route("/health")
 def health():
     return ""
@@ -443,6 +445,7 @@ def home():
 
 
 
+#Create the database models
 class Furniture(db.Model):
     __tablename__ = 'furniture'
     id = db.Column(db.Integer,primary_key=True)
