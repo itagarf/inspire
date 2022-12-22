@@ -6,19 +6,21 @@ from flask_login import UserMixin, LoginManager, login_user, login_required, log
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = "%^&*()LKJHGFDSrtyA}:@<>?"
+app.config["SECRET_KEY"] = "mySECRETkey.(;)"
 #app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
-#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///inspire.inspire"
-#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost:5432/inspire"
-#app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:password@localhost/inspire"
-#app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 
-POSTGRES_HOST = os.environ['POSTGRES_HOST']
+""" POSTGRES_HOST = os.environ['POSTGRES_HOST']
 POSTGRES_USER = os.environ['POSTGRES_USER']
 POSTGRES_PORT = os.environ['POSTGRES_PORT']
 POSTGRES_DB = os.environ['POSTGRES_DB']
-POSTGRES_PASSWORD = os.environ['PGPASSWORD']
+POSTGRES_PASSWORD = os.environ['PGPASSWORD'] """
+
+POSTGRES_HOST="postgres"
+POSTGRES_USER="postgres"
+POSTGRES_PORT=5432
+POSTGRES_DB="postgres"
+POSTGRES_PASSWORD="mysecretpassword"
 
 #app.config["SQLALCHEMY_DATABASE_URI"] ="postgresql://postgres:mysecretpassword@db:5432/postgres"
 app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
@@ -48,7 +50,7 @@ def health():
 
 
 @app.route("/dashboard")
-#@login_required
+@login_required
 def dashboard():
     return render_template("dashboard.html")
 
@@ -84,7 +86,7 @@ def registered():
         db.session.add(new_profile)
         db.session.commit()
         flash("Account created. Please login with email and passsword", category="success")
-        return redirect(url_for("dashboard"))
+        return redirect(url_for("login"))
 
 
 @app.route("/profile")
@@ -425,8 +427,11 @@ def deleteArt(id):
 
 
 
-@app.route("/home")
+@app.route("/")
 def home():
+    with app.app_context():
+        db.create_all()
+        db.session.commit()
     furnitures = Furniture.query.all()
     decors = Decor.query.all()
     bedrooms = Bedroom.query.all()

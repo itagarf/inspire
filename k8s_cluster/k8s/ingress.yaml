@@ -9,10 +9,20 @@ metadata:
     alb.ingress.kubernetes.io/target-type: instance
 spec:
   rules:
-  - host: home-insp.com
+  - host: home.homeinspr.com
     http:
       paths:
       - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: home-service
+            port:
+              number: 80
+  - host: admin.homeinspr.com
+    http:
+      paths:
+      - path: /login
         pathType: Prefix
         backend:
           service:
