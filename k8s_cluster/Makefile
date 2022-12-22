@@ -1,3 +1,8 @@
+#Some of the code can be found here:
+# https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/ 
+# https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
+# https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+
 create_cluster:
 	eksctl create cluster -f cluster.yaml
 
@@ -37,10 +42,10 @@ create_service_account:
 deploy_cert_manager:
 	kubectl apply \
 		--validate=false \
-		-f https://github.com/jetstack/cert-manager/releases/download/v1.1.1/cert-manager.yaml
+		-f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
 
 deploy_ingress_controller:
-	kubectl apply -f ingress_controller.yaml
+	kubectl apply -f v2_4_4_full.yaml
 
 deploy_application:
 	kustomize build ./k8s | kubectl apply -f -

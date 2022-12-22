@@ -40,6 +40,10 @@ def load_user(id):
 
 
 
+@app.route("/health")
+def health():
+    return ""
+
 
 
 

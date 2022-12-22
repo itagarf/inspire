@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: home
-        image: itagar/ins:latest
+        image: itagar/inspire:latest
         #imagePullPolicy: Never
         ports:
         - containerPort: 80
@@ -116,6 +116,24 @@ spec:
 
 
 
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgres-pv
+  labels:
+    type: local
+    app: postgres
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteMany
+  hostPath:
+    path: "/var/lib/postgresql/data"
+
+
 
 ---
 apiVersion: v1
@@ -125,11 +143,13 @@ metadata:
   labels:
     app: postgres
 spec:
+  storageClassName: manual
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
+
 
 
 
@@ -149,26 +169,4 @@ spec:
   selector:
     app: postgres
 
-
-
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: home-ingress
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-spec:
-  rules:
-  - host: home-insp.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: home-service
-            port:
-              number: 80
 
