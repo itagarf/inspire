@@ -29,4 +29,11 @@ spec:
             name: inspire-service
             port:
               number: 80
+      - path: /register
+        pathType: Prefix
+        backend:
+          service:
+            name: inspire-service
+            port:
+              number: 80
 

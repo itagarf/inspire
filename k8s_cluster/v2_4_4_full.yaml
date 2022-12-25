@@ -476,7 +476,31 @@ status:
     plural: ""
   conditions: []
   storedVersions: []
-
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-leader-election-role
+  namespace: kube-system
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - create
+- apiGroups:
+  - ""
+  resourceNames:
+  - aws-load-balancer-controller-leader
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - update
+  - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -697,7 +721,7 @@ spec:
       - args:
         - --cluster-name=inspire-cluster
         - --ingress-class=alb
-        image: 428253719401.dkr.ecr.eu-west-1.amazonaws.com/amazon/aws-alb-ingress-controller:v2.4.4
+        image: amazon/aws-alb-ingress-controller:v2.4.4
         livenessProbe:
           failureThreshold: 2
           httpGet:

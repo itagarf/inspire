@@ -477,6 +477,15 @@ status:
   conditions: []
   storedVersions: []
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app.kubernetes.io/name: aws-load-balancer-controller
+  name: aws-load-balancer-controller-leader-election-role
+  namespace: kube-system
+rules:
+- apiGroups:
   - ""
   resources:
   - configmaps
@@ -710,7 +719,7 @@ spec:
     spec:
       containers:
       - args:
-        - --cluster-name=inspire-cluster
+        - --cluster-name=your-cluster-name
         - --ingress-class=alb
         image: amazon/aws-alb-ingress-controller:v2.4.4
         livenessProbe:
