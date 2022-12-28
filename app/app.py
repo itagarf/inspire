@@ -3,11 +3,22 @@ from flask import Flask, render_template, request, session, redirect, flash, url
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
+from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_s3 import FlaskS3
 
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1, x_proto=1, x_port=1)
 
 app.config["SECRET_KEY"] = "mySECRETkey.(;)"
 #app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+
+#s3 = FlaskS3(app)
+
+#app.config["AWS_ACCESS_KEY_ID"] = os.environ.get('AWS_ACCESS_KEY_ID')
+#app.config["FLASKS3_BUCKET_NAME"] = "inspire-static-files"
+#app.config["AWS_SECRET_ACCESS_KEY"] = os.environ.get('AWS_SECRET_ACCESS_KEY')
+#app.config["FLASKS3_BUCKET_DOMAIN"] = "s3.eu-west-1.amazonaws.com"
+#app.config["FLASKS3_REGION"] = "eu-west-1"
 
 #confirgure the database connection
 
