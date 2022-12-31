@@ -106,3 +106,76 @@ resource "aws_s3_object" "js-sidebar" {
   key = "/static/js/sidebar.js"
   bucket = aws_s3_bucket.inspirestaticfiles.id
 }
+
+
+
+resource "aws_s3_object" "img1" {
+  source = "../app/static/imgs/logodark.svg"
+  key = "/static/imgs/logodark.svg"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img2" {
+  source = "../app/static/imgs/home.png"
+  key = "/static/imgs/home.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img3" {
+  source = "../app/static/imgs/jonathanadler-furniture.png"
+  key = "/static/imgs/jonathanadler-furniture.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img4" {
+  source = "../app/static/imgs/horchow-decor.png"
+  key = "/static/imgs/horchow-decor.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img5" {
+  source = "../app/static/imgs/coyuchi-bed.png"
+  key = "/static/imgs/coyuchi-bed.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img6" {
+  source = "../app/static/imgs/society6-bath.png"
+  key = "/static/imgs/society6-bath.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img7" {
+  source = "../app/static/imgs/jonathanadle2-art.png"
+  key = "/static/imgs/jonathanadle2-art.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img8" {
+  source = "../app/static/imgs/Hung Jae In.png"
+  key = "/static/imgs/Hung Jae In.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img9" {
+  source = "../app/static/imgs/favour Itagar.png"
+  key = "/static/imgs/favour Itagar.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img10" {
+  source = "../app/static/imgs/Cole.png"
+  key = "/static/imgs/Cole.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img11" {
+  source = "../app/static/imgs/Rocky.png"
+  key = "/static/imgs/Rocky.png"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img12" {
+  source = "../app/static/imgs/social-icons.svg"
+  key = "/static/imgs/social-icons.svg"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img13" {
+  source = "../app/static/imgs/icon-hamburger.svg"
+  key = "/static/imgs/icon-hamburger.svg"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
+resource "aws_s3_object" "img14" {
+  source = "../app/static/imgs/icon-close.svg"
+  key = "/static/imgs/icon-close.svg"
+  bucket = aws_s3_bucket.inspirestaticfiles.id
+}
