@@ -36,11 +36,4 @@ spec:
             name: inspire-service
             port:
               number: 80
-      - path: /furniture
-        pathType: Prefix
-        backend:
-          service:
-            name: inspire-service
-            port:
-              number: 80
 
