@@ -15,10 +15,11 @@ spec:
       labels:
         app: inspire
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - name: inspire
         image: itagar/inspr:latest
-        #imagePullPolicy: Never
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
