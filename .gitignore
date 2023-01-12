@@ -7,3 +7,4 @@
 **terraform.tfstate.backup
 **.data/
 .env
+k8s_cluster/route.yaml
