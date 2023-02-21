@@ -54,7 +54,7 @@ def load_user(id):
     return Profile.query.get(int(id))
 
 
-#Perform health check
+#(Trial) ignore this - Perform health check
 @app.route("/health")
 def health():
     return ""

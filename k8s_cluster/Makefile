@@ -9,9 +9,6 @@ create_cluster:
 delete_cluster:
 	eksctl delete cluster -f cluster.yaml
 
-describe_cluster:
-	eksctl utils describe-stacks --region=eu-west-1 --cluster=inspire-cluster
-
 aws_identity:
 	aws sts get-caller-identity
 
@@ -45,10 +42,10 @@ deploy_cert_manager:
 		-f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
 
 #nil
-apply_cert_manager_manifest:
-	kubectl apply \
-		--validate=false \
-		-f ./cert-manager.yaml
+#apply_cert_manager_manifest:
+#	kubectl apply \
+#		--validate=false \
+#		-f ./cert-manager.yaml
 
 deploy_ingress_controller:
 	kubectl apply -f v2_4_4_full.yaml
