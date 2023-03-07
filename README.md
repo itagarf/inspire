@@ -63,7 +63,7 @@ make deploy_application
 
 Here is the application running successfully:
 
-![Admin](app/static/imgs/Readme/admin.png)
+![Admin](app/static/imgs/Readme/Admin.png)
 ![Application](app/static/imgs/Readme/Final_Home.png)
 ![Application Home](app/static/imgs/Readme/Final_H_Details.png)
 ![About](app/static/imgs/Readme/About.png)
